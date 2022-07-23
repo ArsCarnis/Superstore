@@ -1,8 +1,8 @@
 package com.ltp.globalsuperstore.controller;
 
-import com.ltp.globalsuperstore.Constants;
 import com.ltp.globalsuperstore.Item;
 import com.ltp.globalsuperstore.service.SuperstoreService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,17 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.naming.Binding;
 import javax.validation.Valid;
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
 
 @Controller
 public class SuperstoreController {
 
-    SuperstoreService superstoreService = new SuperstoreService();
+    @Autowired
+    SuperstoreService superstoreService;
 
     @GetMapping("/")
     public String getForm(Model model, @RequestParam(required = false) String id) {

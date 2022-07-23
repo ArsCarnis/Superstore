@@ -3,14 +3,18 @@ package com.ltp.globalsuperstore.service;
 import com.ltp.globalsuperstore.Constants;
 import com.ltp.globalsuperstore.Item;
 import com.ltp.globalsuperstore.repository.SuperstoreRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+@Service
 public class SuperstoreService {
 
-    SuperstoreRepository superstoreRepository = new SuperstoreRepository();
+    @Autowired
+    SuperstoreRepository superstoreRepository;
 
     public Item getItem(int index) {
         return superstoreRepository.getItem(index);
